@@ -1,0 +1,27 @@
+{
+    "general": {
+        "prog_name": "SpaceOddity"
+    },
+    "preflight": [
+    ],
+    "sys_reqs": [
+    ],
+    "py_reqs": [
+        "python-crontab"
+    ],
+    "dirs": [
+        "${HOME}/.spaceoddity",
+        "${HOME}/.config/spaceoddity"
+    ],
+    "files": {
+        "spaceoddity.py": "${HOME}/.spaceoddity",
+        "uninstall.py": "${HOME}/.spaceoddity",
+        "LICENSE": "${HOME}/.spaceoddity",
+        "VERSION": "${HOME}/.spaceoddity"
+    },
+    "postflight": [
+        "convert_json.py",
+        "cron_install.py",
+        "${HOME}/.spaceoddity/spaceoddity.py"
+    ]
+}
