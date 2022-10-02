@@ -10,11 +10,10 @@
 # NEXT: cmdline option for path to config file
 # NEXT: less output, only print step name and ... Done
 # NEXT: pre/postflight exit codes
-# NEXT: load_conf should load vars from json file
-
 # NEXT: unattended install to get rid of messages - need to select [Y/n]
 # NEXT: how to check results of apt and pip install
 #       use subprocess.call and check result - see main script
+#       wrap in helper function __run()
 # NEXT: redirect apt and pip to /dev/null to reduce messages
 # NEXT: make a module with installer/uninstaller
 # NEXT: add version string to options and print at start of install
@@ -332,7 +331,7 @@ class Installer:
                 self.conf_dict = json.load(file)
 
                 # make sure we have minimum keys
-                self.__merge_conf_dicts()
+                self.__merge_conf_dicts(self.conf_dict_def, self.conf_dict)
             except Exception as error:
                 print(f'could not load config file: {error}')
                 exit()
@@ -426,42 +425,45 @@ class Installer:
         # otherwise we can skip this step
         return False
 
-    def __merge_conf_dicts(self):
+    # --------------------------------------------------------------------------
+    # Merge required keys from def dict to user dict
+    # --------------------------------------------------------------------------
+    def __merge_conf_dicts(self, dict_src, dict_dst, path=''):
 
-        # NB: there is probably a better way to do this
-        # this is mainly to make sure no one futzed with the config
-        # file manually and deleted or mistyped a key
-        # also note we don't do any value type checking (i.e. string or
-        # int) and no value clamping/validation
-        # basically, DON'T EDIT THE FILE BY HAND!!!
+        # if types match
+        if type(dict_src) == type(dict_dst):
 
-        # set defaults for any missing sections
+            # if both dicts
+            if isinstance(dict_src, dict):
+                for key in dict_src.keys():
 
-        # get two dicts (src and dst)
-        dict_def = self.conf_dict_def
-        dict_user = self.conf_dict
+                    # if key in src but not dest
+                    if key not in dict_dst.keys():
 
-        # iterate over src, adding any missing keys to dst
-        for key in dict_def.keys():
-            if key not in dict_user.keys():
-                dict_user[key] = dict_def[key]
+                        # just copy the whole key/value
+                        dict_dst[key] = dict_src[key]
 
-        # do second-level kv defaults
-        for key in dict_def.keys():
+                    # key is in both
+                    else:
 
-            # get two dicts (src and dst)
-            dict_def_2 = dict_def[key]
-            dict_user_2 = dict_user[key]
+                        # recurse to next level for matching
+                        path = path + '/' + key
+                        self.__merge_conf_dicts(dict_src[key], dict_dst[key], 
+                                                path)
 
-            if isinstance(dict_def_2, dict):
-                # iterate over src, adding any missing keys to dst
-                for key in dict_def_2.keys():
-                    if key not in dict_user_2.keys():
-                        dict_user_2[key] = dict_def_2[key]
-            elif isinstance(dict_def_2, list):
-                for item in dict_def_2:
-                    if item not in dict_user_2:
-                        dict_user_2.append(item)
+            # if both lists
+            elif isinstance(dict_src, list):
+                for item in dict_src:
+
+                    # if item in src but not dst
+                    if item not in dict_dst:
+
+                        # add to dst
+                        dict_dst.append(item)
+
+        # dict/list mismatch
+        else:
+            raise Exception(f'Merge type mismatch: {path}')
 
 # def __run(self, cmd=''):
 #     try:
