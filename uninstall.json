@@ -1,0 +1,16 @@
+{
+    "general": {
+        "name": "SpaceOddity"
+    },
+    "preflight": [
+        "${HOME}/.spaceoddity/cron_uninstall.py"
+    ],
+    "dirs": [
+        "${HOME}/.spaceoddity",
+        "${HOME}/.config/spaceoddity"
+    ],
+    "files": {
+    },
+    "postflight": [
+    ]
+}

@@ -1,0 +1,19 @@
+'general': {
+    'prog_name':    ''
+},
+'preflight': [
+],
+'sys_reqs': [
+],
+'py_reqs': [
+],
+'dirs': [
+],
+'files': {
+},
+'postflight': [
+]
+
+subs available:
+${HOME}
+${SRC}
