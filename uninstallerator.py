@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -----------------------------------------------------------------------------#
-# Filename: uninstaller.py                                       /          \  #
-# Project : Installer                                           |     ()     | #
+# Filename: uninstallerator.py                                   /          \  #
+# Project : Installerator                                       |     ()     | #
 # Date    : 09/29/2022                                          |            | #
 # Author  : Dana Hynes                                          |   \____/   | #
 # License : WTFPLv2                                              \          /  #
@@ -16,7 +16,7 @@ import os
 import shutil
 
 # local imports
-from base_installer import Base_Installer
+from Installerator.base_installerator import Base_Installerator
 
 # ------------------------------------------------------------------------------
 # Constants
@@ -29,7 +29,7 @@ DEBUG = 1
 # ------------------------------------------------------------------------------
 
 
-class Uninstaller(Base_Installer):
+class Uninstallerator(Base_Installerator):
 
     # --------------------------------------------------------------------------
     # Methods
@@ -46,16 +46,13 @@ class Uninstaller(Base_Installer):
     # --------------------------------------------------------------------------
     # Run the script
     # --------------------------------------------------------------------------
-    def run(self):
-
-        # get path to conf file
-        conf_path = os.path.join(self.src_dir, 'uninstall.json')
+    def run(self, conf_path):
 
         # base installer run
         super().run(conf_path)
 
         # show some text
-        prog_name = self.conf_dict['general']['name']
+        prog_name = self.dict_conf['general']['name']
         print(f'Uninstalling {prog_name}')
 
         self.do_preflight()
@@ -83,7 +80,7 @@ class Uninstaller(Base_Installer):
         print('Deleting directories')
 
         # for each folder we need to delete
-        for item in self.conf_dict['dirs']:
+        for item in self.dict_conf['dirs']:
 
             # show that we are doing something
             print(f'Deleting directory {item} ... ', end='')
@@ -111,7 +108,7 @@ class Uninstaller(Base_Installer):
         print('Deleting files')
 
         # for each file we need to delete
-        for src, dst in self.conf_dict['files'].items():
+        for src, dst in self.dict_conf['files'].items():
 
             # show that we are doing something
             print(f'Deleting file {src} ... ', end='')

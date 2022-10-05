@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -----------------------------------------------------------------------------#
-# Filename: base_installer.py                                    /          \  #
-# Project : Installer                                           |     ()     | #
+# Filename: base_installerator.py                                /          \  #
+# Project : Installerator                                       |     ()     | #
 # Date    : 10/03/2022                                          |            | #
 # Author  : Dana Hynes                                          |   \____/   | #
 # License : WTFPLv2                                              \          /  #
@@ -11,6 +11,7 @@
 # NEXT: cmdline option for path to config file
 # NEXT: add version string to options and print at start of install
 # NEXT: custom substitutions?
+# TODO: which paths should be absolute/relative (json_format.txt)
 
 # ------------------------------------------------------------------------------
 # Imports
@@ -22,7 +23,7 @@ import shlex
 import subprocess
 
 # local imports
-from Configurator.configurator import Configurator
+from Installerator.Configurator.configurator import Configurator
 
 # ------------------------------------------------------------------------------
 # Constants
@@ -35,7 +36,7 @@ DEBUG = 1
 # ------------------------------------------------------------------------------
 
 
-class Base_Installer:
+class Base_Installerator:
 
     # --------------------------------------------------------------------------
     # Public methods

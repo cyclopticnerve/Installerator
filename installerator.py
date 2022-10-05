@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -----------------------------------------------------------------------------#
-# Filename: installer.py                                         /          \  #
-# Project : Installer                                           |     ()     | #
+# Filename: installerator.py                                     /          \  #
+# Project : Installerator                                       |     ()     | #
 # Date    : 09/29/2022                                          |            | #
 # Author  : Dana Hynes                                          |   \____/   | #
 # License : WTFPLv2                                              \          /  #
@@ -19,7 +19,7 @@ import shutil
 import subprocess
 
 # local imports
-from base_installer import Base_Installer
+from Installerator.base_installerator import Base_Installerator
 
 # ------------------------------------------------------------------------------
 # Constants
@@ -32,7 +32,7 @@ DEBUG = 1
 # ------------------------------------------------------------------------------
 
 
-class Installer(Base_Installer):
+class Installerator(Base_Installerator):
 
     # --------------------------------------------------------------------------
     # Methods
