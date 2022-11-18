@@ -1,0 +1,80 @@
+
+INITIAL
+
+project_name/
+    src/
+        package_name/
+            __init__.py
+            module_name.py
+    tests/
+        test.py
+    todo/
+        checklist.txt
+        howto.txt
+        todo.txt
+    venv/
+    .gitignore
+    LICENSE
+    MANIFEST.in
+    pyproject.toml
+    README.md
+    requiremwents.txt
+
+create venv
+$ python -m venv venv
+
+!!! DON'T CHAGE NAME OF PROJECT FOLDER! IT WILL BREAK VENV!!!
+
+ctrl+shift+p - python:select interpreter
+browse to venv/bin/python
+install linter from popup in lower right
+
+--------------------------------------------------------------------------------
+
+WORK
+
+docstrings
+unit tests/pytest
+
+install from source in venv (this project)
+$ (venv) python -m pip install -e .
+
+install from source in venv (other project)
+$ (venv) ppython -m pip install -e /path/to/project/folder
+
+------------------------------------------------------------
+
+RELEASE
+
+version number
+
+to build:
+python -m build
+
+upload to testpypi/pypi
+$ twine upload -r testpypi dist/*
+$ twine upload dist/*
+
+
+NEXT: install from testypi/pypi
+$ python3 -m pip install -i https://test.pypi.org/simple/ project_name
+$ python3 -m pip install project_name
+
+NEXT: install from github
+https://packaging.python.org/en/latest/tutorials/installing-packages/#id23
+python3 -m pip git+https://github.com/cyclopticnerve/project_name/
+requirements? pip install -r requirements.txt
+
+python3 -m pip install -e git+https://github.com/cyclopticnerve/<project_name>.git#egg=<project_name>       # from default branch
+python3 -m pip install -e git+https://github.com/cyclopticnerve/<project_name>.git@maine#egg=<project_name> # from specific branch
+
+
+
+
+
+NEXT: Meta:
+Project name (capitalized)
+Version number
+Copyright
+Short desc (for git and setup)
+Tags (for git and setup)

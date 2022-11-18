@@ -1,0 +1,52 @@
+Project setup
+
+Nautilus
+    [] Copy Template as new project folder
+
+VSCodium
+    [] Create venv - $ python -m venv venv; $ source venv/bin/activate
+    [] Install pylama in venv (popup in cottom right)
+    [] Install build - $ python -m pip install build
+    [] Create new repo in github tab
+    [] Publish branch
+    [] Stage all changes
+    [] Commit “first commit”
+    [] Checkout new branch “dev” from “main”
+    [] Sync changes
+
+GitHub
+    [] Make “dev” default branch
+    [] Add description and search tags
+
+--------------------------------------------------------------------------------
+
+Work
+     - Do all work on dev
+     - Unit tests
+    [] Internal test (sys.path)
+    [] Install/test in venv (this project)
+    [] Install/test in venv (test project)
+    [] Headers/footers
+    [] Docstrings
+
+--------------------------------------------------------------------------------
+
+Release - VSCodium
+    [] $ python -m pip freeze > requirements.txt
+    [] remove '-e' from requirements
+    [] Change version number in __init__.py and pyproject.toml
+    [] Build - $ python -m build
+    [] Push "dev"
+    [] Checkout new branch “release” from “dev”
+    [] Publish branch
+    [] Modify files as necessary (delete .gitignore, etc.)
+    [] Change any DEBUG to 0
+    [] Merge from “release” to “main“ (git checkout “main”; git merge “release”)
+    [] Delete release branch
+    [] Push “main”
+    [] DO NOT TAG HERE - TAG IN GITHUB (TAG CONFLICT?)
+
+Release - GitHub
+    [] Draft release
+    [] Tag with version number (v0.1.0)
+    [] Make sure target is main

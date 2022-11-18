@@ -1,29 +1,23 @@
-#!/usr/bin/env python3
 # -----------------------------------------------------------------------------#
 # Filename: base_installerator.py                                /          \  #
 # Project : Installerator                                       |     ()     | #
 # Date    : 10/03/2022                                          |            | #
-# Author  : Dana Hynes                                          |   \____/   | #
+# Author  : cyclopticnerve                                      |   \____/   | #
 # License : WTFPLv2                                              \          /  #
 # -----------------------------------------------------------------------------#
-
-# NEXT: pre/postflight exit codes
-# NEXT: cmdline option for path to config file
-# NEXT: add version string to options and print at start of install
-# NEXT: custom substitutions?
-# TODO: which paths should be absolute/relative (json_format.txt)
 
 # ------------------------------------------------------------------------------
 # Imports
 # ------------------------------------------------------------------------------
 
-# regular imports
+# global imports
+# import json
 import os
 import shlex
 import subprocess
 
 # local imports
-from Installerator.Configurator.configurator import Configurator
+import configurator
 
 # ------------------------------------------------------------------------------
 # Constants
@@ -31,10 +25,10 @@ from Installerator.Configurator.configurator import Configurator
 
 DEBUG = 1
 
+
 # ------------------------------------------------------------------------------
 # Define the main class
 # ------------------------------------------------------------------------------
-
 
 class Base_Installerator:
 
@@ -46,28 +40,34 @@ class Base_Installerator:
     # Initialize the class
     # --------------------------------------------------------------------------
     def __init__(self):
+        pass
 
-        # get location
-        self.src_dir = os.path.dirname(os.path.abspath(__file__))
+    # --------------------------------------------------------------------------
+    # Private methods
+    # --------------------------------------------------------------------------
 
     # --------------------------------------------------------------------------
     # Run the script
     # --------------------------------------------------------------------------
-    def run(self, conf_path):
+    def _run(self, dict_user):
 
-        # get current user's home dir
-        home_dir = os.path.expanduser('~')
+        # the user dict
+        # dict_user = {}
+        # if os.path.exists(conf_path):
+        #     try:
+        #         with open(conf_path) as file_handle:
+        #             dict_user = json.load(file_handle)
+        #     except Exception as error:
+        #         print(f'Could not open config file: {error}')
+        #         exit()
+        # else:
+        #     print('Config file does not exist')
+        #     exit()
 
-        # the dict of substitutions
-        dict_subs = {
-            '${HOME}': home_dir,
-            '${SRC}': self.src_dir
-        }
-
-        # the default dict dir
-        dict_conf_defaults = {
+        # the defs dict
+        dict_defs = {
             'general': {
-                'prog_name':    ''
+                'name':    ''
             },
             'preflight': [
             ],
@@ -83,22 +83,28 @@ class Base_Installerator:
             ]
         }
 
-        # user config dict
-        configurator = Configurator()
-        try:
-            self.dict_conf = configurator.load(conf_path, dict_conf_defaults,
-                                               dict_subs)
-        except Exception as error:
-            print(error)
-            exit()
+        # get current user's home dir
+        home_dir = os.path.expanduser('~')
+
+        # get location
+        src_dir = os.path.dirname(os.path.abspath(__file__))
+
+        # the default dict of substitutions
+        dict_subs = {
+            '${HOME}': home_dir,
+            '${SRC}': src_dir
+        }
+
+        # do the config merge
+        self.dict_conf = configurator.load(dict_defs, dict_user, dict_subs)
 
     # --------------------------------------------------------------------------
     # Check if we are going to need sudo password and get it now
     # --------------------------------------------------------------------------
-    def check_sudo(self):
+    def _check_sudo(self):
 
         # if either of theses steps is required, we need sudo
-        if self.needs_step('sys_reqs') or self.needs_step('py_reqs'):
+        if self._needs_step('sys_reqs') or self._needs_step('py_reqs'):
 
             # ask for sudo password now
             cmd = 'sudo echo -n'
@@ -108,19 +114,19 @@ class Base_Installerator:
     # --------------------------------------------------------------------------
     # Run preflight scripts
     # --------------------------------------------------------------------------
-    def do_preflight(self):
-        self.__run_scripts('preflight')
+    def _do_preflight(self):
+        self._run_scripts('preflight')
 
     # --------------------------------------------------------------------------
     # Run postflight scripts
     # --------------------------------------------------------------------------
-    def do_postflight(self):
-        self.__run_scripts('postflight')
+    def _do_postflight(self):
+        self._run_scripts('postflight')
 
     # --------------------------------------------------------------------------
     # Check if a step needs to be performed or can be skipped
     # --------------------------------------------------------------------------
-    def needs_step(self, step):
+    def _needs_step(self, step):
 
         # if the section is present
         if step in self.dict_conf.keys():
@@ -134,16 +140,12 @@ class Base_Installerator:
         return False
 
     # --------------------------------------------------------------------------
-    # Private methods
-    # --------------------------------------------------------------------------
-
-    # --------------------------------------------------------------------------
     # Run preflight/postflight scripts
     # --------------------------------------------------------------------------
-    def __run_scripts(self, step):
+    def _run_scripts(self, step):
 
         # check for empty/no list
-        if not self.needs_step(step):
+        if not self._needs_step(step):
             return
 
         # show some text
@@ -152,13 +154,14 @@ class Base_Installerator:
         for item in self.dict_conf[step]:
 
             # show that we are doing something
-            print(f'Running {item} ... ', end='')
+            print(f'Running {item}... ', end='')
 
             # run item
             cmd_array = shlex.split(item)
             try:
                 if not DEBUG:
-                    subprocess.run(cmd_array)
+                    cp = subprocess.run(cmd_array, check=True)
+                    cp.check_returncode()
                 print('Done')
             except Exception as error:
                 print('Fail')

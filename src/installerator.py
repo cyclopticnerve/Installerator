@@ -1,9 +1,8 @@
-#!/usr/bin/env python3
 # -----------------------------------------------------------------------------#
 # Filename: installerator.py                                     /          \  #
 # Project : Installerator                                       |     ()     | #
 # Date    : 09/29/2022                                          |            | #
-# Author  : Dana Hynes                                          |   \____/   | #
+# Author  : cyclopticnerve                                      |   \____/   | #
 # License : WTFPLv2                                              \          /  #
 # -----------------------------------------------------------------------------#
 
@@ -11,15 +10,14 @@
 # Imports
 # ------------------------------------------------------------------------------
 
-
-# regular imports
+# global imports
 import os
 import shlex
 import shutil
 import subprocess
 
 # local imports
-from Installerator.base_installerator import Base_Installerator
+from base_installerator import Base_Installerator
 
 # ------------------------------------------------------------------------------
 # Constants
@@ -27,15 +25,15 @@ from Installerator.base_installerator import Base_Installerator
 
 DEBUG = 1
 
+
 # ------------------------------------------------------------------------------
 # Define the main class
 # ------------------------------------------------------------------------------
 
-
 class Installerator(Base_Installerator):
 
     # --------------------------------------------------------------------------
-    # Methods
+    # Public methods
     # --------------------------------------------------------------------------
 
     # --------------------------------------------------------------------------
@@ -49,43 +47,43 @@ class Installerator(Base_Installerator):
     # --------------------------------------------------------------------------
     # Run the script
     # --------------------------------------------------------------------------
-    def run(self, conf_path):
+    def run(self, dict_user):
 
         # base installer run
-        super().run(conf_path)
+        super()._run(dict_user)
 
         # check if we need sudo password
-        self.check_sudo()
+        super()._check_sudo()
 
         # show some text
         prog_name = self.dict_conf['general']['name']
         print(f'Installing {prog_name}')
 
-        self.do_preflight()
-        self.do_sys_reqs()
-        self.do_py_reqs()
-        self.do_dirs()
-        self.do_files()
-        self.do_postflight()
+        super()._do_preflight()
+        self._do_sys_reqs()
+        self._do_py_reqs()
+        self._do_dirs()
+        self._do_files()
+        super()._do_postflight()
 
         # done installing
         print(f'{prog_name} installed')
 
     # --------------------------------------------------------------------------
-    # Steps
+    # Private methods
     # --------------------------------------------------------------------------
 
     # --------------------------------------------------------------------------
     # Install system prerequisites
     # --------------------------------------------------------------------------
-    def do_sys_reqs(self):
+    def _do_sys_reqs(self):
 
         # check for pip necessary
-        if self.needs_step('py-reqs'):
+        if super()._needs_step('py-reqs'):
             self.dict_conf['sys_reqs'].append('python3-pip')
 
         # check for empty/no list
-        if not self.needs_step('sys_reqs'):
+        if not super()._needs_step('sys_reqs'):
             return
 
         # show some text
@@ -95,7 +93,7 @@ class Installerator(Base_Installerator):
         for item in self.dict_conf['sys_reqs']:
 
             # show that we are doing something
-            print(f'Installing {item} ... ', end='')
+            print(f'Installing {item}... ', end='')
 
             # install apt reqs
             cmd = f'sudo apt-get install {item} -qq > /dev/null'
@@ -113,10 +111,10 @@ class Installerator(Base_Installerator):
     # --------------------------------------------------------------------------
     # Install python prerequisites
     # --------------------------------------------------------------------------
-    def do_py_reqs(self):
+    def _do_py_reqs(self):
 
         # check for empty/no list
-        if not self.needs_step('py_reqs'):
+        if not super()._needs_step('py_reqs'):
             return
 
         # show some text
@@ -126,7 +124,7 @@ class Installerator(Base_Installerator):
         for item in self.dict_conf['py_reqs']:
 
             # show that we are doing something
-            print(f'Installing {item} ... ', end='')
+            print(f'Installing {item}... ', end='')
 
             # install pip reqs
             cmd = f'pip3 install -q {item} > /dev/null'
@@ -144,10 +142,10 @@ class Installerator(Base_Installerator):
     # --------------------------------------------------------------------------
     # Make any necessary directories
     # --------------------------------------------------------------------------
-    def do_dirs(self):
+    def _do_dirs(self):
 
         # check for empty/no list
-        if not self.needs_step('dirs'):
+        if not super()._needs_step('dirs'):
             return
 
         # show some text
@@ -157,7 +155,7 @@ class Installerator(Base_Installerator):
         for item in self.dict_conf['dirs']:
 
             # show that we are doing something
-            print(f'Creating directory {item} ... ', end='')
+            print(f'Creating directory {item}... ', end='')
 
             # make the folder(s)
             try:
@@ -172,10 +170,10 @@ class Installerator(Base_Installerator):
     # --------------------------------------------------------------------------
     # Copy all files to their dests
     # --------------------------------------------------------------------------
-    def do_files(self):
+    def _do_files(self):
 
         # check for empty/no list
-        if not self.needs_step('files'):
+        if not super()._needs_step('files'):
             return
 
         # show some text
@@ -185,19 +183,20 @@ class Installerator(Base_Installerator):
         for src, dst in self.dict_conf['files'].items():
 
             # show that we are doing something
-            print(f'Copying {src} to {dst} ... ', end='')
+            print(f'Copying {src} to {dst}... ', end='')
 
+            # NB: removed because all paths should be absolute
             # convert relative path to absolute path
-            abs_src = os.path.join(self.src_dir, src)
+            # abs_src = os.path.join(self.src_dir, src)
 
             # copy the file
             try:
                 if not DEBUG:
-                    shutil.copy(abs_src, dst)
+                    shutil.copy(src, dst)
                 print('Done')
             except Exception as error:
                 print('Fail')
-                print(f'Could not copy file {abs_src}: {error}')
+                print(f'Could not copy file {src}: {error}')
                 exit()
 
 # -)

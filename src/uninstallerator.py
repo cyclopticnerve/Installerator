@@ -1,9 +1,8 @@
-#!/usr/bin/env python3
 # -----------------------------------------------------------------------------#
 # Filename: uninstallerator.py                                   /          \  #
 # Project : Installerator                                       |     ()     | #
 # Date    : 09/29/2022                                          |            | #
-# Author  : Dana Hynes                                          |   \____/   | #
+# Author  : cyclopticnerve                                      |   \____/   | #
 # License : WTFPLv2                                              \          /  #
 # -----------------------------------------------------------------------------#
 
@@ -11,12 +10,12 @@
 # Imports
 # ------------------------------------------------------------------------------
 
-# regular imports
+# global imports
 import os
 import shutil
 
 # local imports
-from Installerator.base_installerator import Base_Installerator
+from base_installerator import Base_Installerator
 
 # ------------------------------------------------------------------------------
 # Constants
@@ -24,15 +23,15 @@ from Installerator.base_installerator import Base_Installerator
 
 DEBUG = 1
 
+
 # ------------------------------------------------------------------------------
 # Define the main class
 # ------------------------------------------------------------------------------
 
-
 class Uninstallerator(Base_Installerator):
 
     # --------------------------------------------------------------------------
-    # Methods
+    # Public methods
     # --------------------------------------------------------------------------
 
     # --------------------------------------------------------------------------
@@ -46,34 +45,34 @@ class Uninstallerator(Base_Installerator):
     # --------------------------------------------------------------------------
     # Run the script
     # --------------------------------------------------------------------------
-    def run(self, conf_path):
+    def run(self, dict_user):
 
         # base installer run
-        super().run(conf_path)
+        super()._run(dict_user)
 
         # show some text
         prog_name = self.dict_conf['general']['name']
         print(f'Uninstalling {prog_name}')
 
-        self.do_preflight()
-        self.do_dirs()
-        self.do_files()
-        self.do_postflight()
+        super()._do_preflight()
+        self._do_dirs()
+        self._do_files()
+        super()._do_postflight()
 
         # done uninstalling
         print(f'{prog_name} uninstalled')
 
     # --------------------------------------------------------------------------
-    # Steps
+    # Private methods
     # --------------------------------------------------------------------------
 
     # --------------------------------------------------------------------------
-    # Delete any necessary directories
+    # Delete any unnecessary directories
     # --------------------------------------------------------------------------
-    def do_dirs(self):
+    def _do_dirs(self):
 
         # check for empty/no list
-        if not self.needs_step('dirs'):
+        if not super()._needs_step('dirs'):
             return
 
         # show some text
@@ -83,7 +82,7 @@ class Uninstallerator(Base_Installerator):
         for item in self.dict_conf['dirs']:
 
             # show that we are doing something
-            print(f'Deleting directory {item} ... ', end='')
+            print(f'Deleting directory {item}... ', end='')
 
             # delete the folder
             try:
@@ -98,10 +97,10 @@ class Uninstallerator(Base_Installerator):
     # --------------------------------------------------------------------------
     # Delete any necessary files (outside above directiories)
     # --------------------------------------------------------------------------
-    def do_files(self):
+    def _do_files(self):
 
         # check for empty/no list
-        if not self.needs_step('files'):
+        if not super()._needs_step('files'):
             return
 
         # show some text
@@ -111,20 +110,21 @@ class Uninstallerator(Base_Installerator):
         for src, dst in self.dict_conf['files'].items():
 
             # show that we are doing something
-            print(f'Deleting file {src} ... ', end='')
+            print(f'Deleting file {src}... ', end='')
 
+            # NB: removed because all paths should be absolute
             # convert relative path to absolute path
-            abs_src = os.path.join(dst, src)
+            # abs_src = os.path.join(dst, src)
 
             # delete the file (if it'wasn't in a folder above)
-            if os.path.exists(abs_src):
+            if os.path.exists(src):
                 try:
                     if not DEBUG:
-                        os.remove(abs_src)
+                        os.remove(src)
                     print('Done')
                 except Exception as error:
                     print('Fail')
-                    print(f'Could not delete file {abs_src}: {error}')
+                    print(f'Could not delete file {src}: {error}')
                     exit()
 
 # -)

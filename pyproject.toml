@@ -1,0 +1,42 @@
+# ------------------------------------------------------------------------------
+# Filename: pyproject.toml                                         /          \
+# Project : Installerator                                         |     ()     |
+# Date    : 10/28/2022                                            |            |
+# Author  : cyclopticnerve                                        |   \____/   |
+# License : WTFPLv2                                                \          /
+# ------------------------------------------------------------------------------
+
+[build-system]
+requires = [
+    "setuptools>=59.6.0",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "installerator" # package/module name, small letters
+version = "0.1.0"
+description = "A small Python module that makes installing Python apps easier"
+readme = "README.md"
+authors = [
+    {name = "cyclopticnerve", email = "cyclopticnerve@gmail.com"}
+]
+license = {file = "LICENSE"}
+classifiers = [
+    "License :: Other/Proprietary License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = [
+    "install",
+    "installer",
+    "program"
+]
+dependencies = []
+requires-python = ">=3.10"
+
+[project.urls]
+Homepage = "https://github.com/cyclopticnerve/Installerator"
+
+# -)
