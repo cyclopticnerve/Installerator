@@ -31,7 +31,7 @@ classifiers = [
 keywords = [
     "install",
     "installer",
-    "program"
+    "installation"
 ]
 dependencies = []
 requires-python = ">=3.10"
