@@ -15,10 +15,6 @@ dict_user = {
     "general": {
         "name": "SpaceOddity"
     },
-    "preflight": [
-    ],
-    "sys_reqs": [
-    ],
     "py_reqs": [
         "python-crontab"
     ],
