@@ -41,6 +41,16 @@ class Installerator(Base_Installerator):
     # --------------------------------------------------------------------------
     def __init__(self):
 
+        '''
+            desc
+
+            Paramaters:
+                param1 [type]:
+
+            Returns:
+                ret [type]:
+        '''
+
         # base installer init
         super().__init__()
 
@@ -48,6 +58,16 @@ class Installerator(Base_Installerator):
     # Run the script
     # --------------------------------------------------------------------------
     def run(self, dict_user):
+
+        '''
+            desc
+
+            Paramaters:
+                param1 [type]:
+
+            Returns:
+                ret [type]:
+        '''
 
         # base installer run
         super()._run(dict_user)
@@ -77,6 +97,16 @@ class Installerator(Base_Installerator):
     # Install system prerequisites
     # --------------------------------------------------------------------------
     def _do_sys_reqs(self):
+
+        '''
+            desc
+
+            Paramaters:
+                param1 [type]:
+
+            Returns:
+                ret [type]:
+        '''
 
         # check for pip necessary
         if super()._needs_step('py-reqs'):
@@ -113,6 +143,16 @@ class Installerator(Base_Installerator):
     # --------------------------------------------------------------------------
     def _do_py_reqs(self):
 
+        '''
+            desc
+
+            Paramaters:
+                param1 [type]:
+
+            Returns:
+                ret [type]:
+        '''
+
         # check for empty/no list
         if not super()._needs_step('py_reqs'):
             return
@@ -144,6 +184,16 @@ class Installerator(Base_Installerator):
     # --------------------------------------------------------------------------
     def _do_dirs(self):
 
+        '''
+            desc
+
+            Paramaters:
+                param1 [type]:
+
+            Returns:
+                ret [type]:
+        '''
+
         # check for empty/no list
         if not super()._needs_step('dirs'):
             return
@@ -171,6 +221,16 @@ class Installerator(Base_Installerator):
     # Copy all files to their dests
     # --------------------------------------------------------------------------
     def _do_files(self):
+
+        '''
+            desc
+
+            Paramaters:
+                param1 [type]:
+
+            Returns:
+                ret [type]:
+        '''
 
         # check for empty/no list
         if not super()._needs_step('files'):
