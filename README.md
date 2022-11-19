@@ -41,4 +41,67 @@ foo@bar:~/Downloads/Installerator$ python -m pip install ./dist/installerator-X.
 python -m pip uninstall installerator
 ```
 
+## Usage
+
+### Install:
+```python
+from installerator import Installerator
+
+# the user dict
+dict_user = {
+    "general": {
+        "name": "SpaceOddity"
+    },
+    "py_reqs": [
+        "python-crontab"
+    ],
+    "dirs": [
+        "${HOME}/.spaceoddity",
+        "${HOME}/.config/spaceoddity"
+    ],
+    "files": {
+        "${SRC}/spaceoddity.py": "${HOME}/.spaceoddity",
+        "${SRC}/LICENSE": "${HOME}/.spaceoddity",
+        "${SRC}/VERSION": "${HOME}/.spaceoddity",
+        "${SRC}/uninstall.py": "${HOME}/.spaceoddity",
+        "${SRC}/uninstall.json": "${HOME}/.spaceoddity",
+        "${SRC}/cron_uninstall.py": "${HOME}/.spaceoddity"
+    },
+    "postflight": [
+        "${SRC}/convert_json.py",
+        "${SRC}/cron_install.py",
+        "${HOME}/.spaceoddity/spaceoddity.py"
+    ]
+}
+
+# create an instance of the class
+installerator = Installerator()
+
+# # run the instance
+installerator.run(dict_user)
+```
+Uninstall:
+```python
+from uninstallerator import Uninstallerator 
+
+dict_user = {
+    "general": {
+        "name": "SpaceOddity"
+    },
+    "preflight": [
+        "${HOME}/.spaceoddity/cron_uninstall.py"
+    ],
+    "dirs": [
+        "${HOME}/.spaceoddity",
+        "${HOME}/.config/spaceoddity"
+    ]
+}
+
+# create an instance of the class
+uninstallerator = Uninstallerator()
+
+# # run the instance
+uninstallerator.run(dict_user)
+```
+
 ## -)
