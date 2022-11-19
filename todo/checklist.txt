@@ -1,32 +1,32 @@
 Project setup
 
 Nautilus
-    [] Copy Template as new project folder
+    [X] Copy Template as new project folder
 
 VSCodium
-    [] Create venv - $ python -m venv venv; $ source venv/bin/activate
-    [] Install pylama in venv (popup in cottom right)
-    [] Install build - $ python -m pip install build
-    [] Create new repo in github tab
-    [] Publish branch
-    [] Stage all changes
-    [] Commit “first commit”
-    [] Checkout new branch “dev” from “main”
-    [] Sync changes
+    [X] Create venv - $ python -m venv venv; $ source venv/bin/activate
+    [X] Install pylama in venv (popup in cottom right)
+    [X] Install build - $ python -m pip install build
+    [X] Create new repo in github tab
+    [X] Publish "main" branch
+    [X] Stage all changes
+    [X] Commit “first commit”
+    [X] Checkout new branch “dev” from “main”
+    [X] Sync changes
 
 GitHub
-    [] Make “dev” default branch
-    [] Add description and search tags
+    [X] Make “dev” default branch
+    [X] Add description and search tags
 
 --------------------------------------------------------------------------------
 
 Work
      - Do all work on dev
      - Unit tests
-    [] Internal test (sys.path)
-    [] Install/test in venv (this project)
-    [] Install/test in venv (test project)
-    [] Headers/footers
+    [X] Internal test (sys.path)
+    [X] Install/test in venv (this project)
+    [X] Install/test in venv (test project)
+    [X] Headers/footers
     [] Docstrings
 
 --------------------------------------------------------------------------------
