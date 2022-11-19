@@ -20,10 +20,6 @@ dict_user = {
     "dirs": [
         "${HOME}/.spaceoddity",
         "${HOME}/.config/spaceoddity"
-    ],
-    "files": {
-    },
-    "postflight": [
     ]
 }
 # ------------------------------------------------------------------------------
