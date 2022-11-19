@@ -39,6 +39,16 @@ class Uninstallerator(Base_Installerator):
     # --------------------------------------------------------------------------
     def __init__(self):
 
+        '''
+            desc
+
+            Paramaters:
+                param1 [type]:
+
+            Returns:
+                ret [type]:
+        '''
+
         # base installer init
         super().__init__()
 
@@ -46,6 +56,16 @@ class Uninstallerator(Base_Installerator):
     # Run the script
     # --------------------------------------------------------------------------
     def run(self, dict_user):
+
+        '''
+            desc
+
+            Paramaters:
+                param1 [type]:
+
+            Returns:
+                ret [type]:
+        '''
 
         # base installer run
         super()._run(dict_user)
@@ -70,6 +90,16 @@ class Uninstallerator(Base_Installerator):
     # Delete any unnecessary directories
     # --------------------------------------------------------------------------
     def _do_dirs(self):
+
+        '''
+            desc
+
+            Paramaters:
+                param1 [type]:
+
+            Returns:
+                ret [type]:
+        '''
 
         # check for empty/no list
         if not super()._needs_step('dirs'):
@@ -98,6 +128,16 @@ class Uninstallerator(Base_Installerator):
     # Delete any necessary files (outside above directiories)
     # --------------------------------------------------------------------------
     def _do_files(self):
+
+        '''
+            desc
+
+            Paramaters:
+                param1 [type]:
+
+            Returns:
+                ret [type]:
+        '''
 
         # check for empty/no list
         if not super()._needs_step('files'):
