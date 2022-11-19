@@ -11,7 +11,6 @@
 # ------------------------------------------------------------------------------
 
 # global imports
-# import json
 import os
 import shlex
 import subprocess
@@ -50,19 +49,6 @@ class Base_Installerator:
     # Run the script
     # --------------------------------------------------------------------------
     def _run(self, dict_user):
-
-        # the user dict
-        # dict_user = {}
-        # if os.path.exists(conf_path):
-        #     try:
-        #         with open(conf_path) as file_handle:
-        #             dict_user = json.load(file_handle)
-        #     except Exception as error:
-        #         print(f'Could not open config file: {error}')
-        #         exit()
-        # else:
-        #     print('Config file does not exist')
-        #     exit()
 
         # the defs dict
         dict_defs = {
