@@ -1,6 +1,6 @@
 <!----------------------------------------------------------------------------->
-<!-- Filename: README.md                                       /          \  -->
-<!-- Project : Installerator                                   |     ()     | -->
+<!-- Project : Installerator                                   /          \  -->
+<!-- Filename: README.md                                      |     ()     | -->
 <!-- Date    : 10/31/2022                                     |            | -->
 <!-- Author  : cyclopticnerve                                 |   \____/   | -->
 <!-- License : WTFPLv2                                         \          /  -->

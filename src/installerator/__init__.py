@@ -1,6 +1,6 @@
 # ------------------------------------------------------------------------------
-# Filename: __init__.py                                            /          \
-# Project : Installerator                                         |     ()     |
+# Project : Installerator                                          /          \
+# Filename: __init__.py                                           |     ()     |
 # Date    : 10/03/2022                                            |            |
 # Author  : cyclopticnerve                                        |   \____/   |
 # License : WTFPLv2                                                \          /
