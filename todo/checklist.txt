@@ -47,7 +47,8 @@ Release - VSCodium
     [X] Delete release branch
     [X] Push “main”
     [X] tag with version number "vX.X.X" and push
+    [X] checkout "dev"
 Release - GitHub
-    [] Draft release
-    [] Tag with version number (v0.1.0)
-    [] Make sure target is main
+    [X] Draft release
+    [X] Tag with version number (v0.1.0)
+    [X] Make sure target is main
