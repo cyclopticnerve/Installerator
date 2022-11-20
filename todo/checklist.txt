@@ -43,7 +43,7 @@ Release - VSCodium
     [X] Change any DEBUG to 0
     [X] Merge from “release” to “main“ (git checkout “main”; git merge “release”, squash commits)
     [X] Delete release branch ($ git push --delete origin release) (doesn't work in gui?)
-    [] Push “main”
+    [X] Push “main”
     [] DO NOT TAG HERE - TAG IN GITHUB (TAG CONFLICT?)
     [] checkout "dev"
 
