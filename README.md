@@ -35,6 +35,11 @@ foo@bar:~/Downloads/Installerator$ python -m build
 foo@bar:~/Downloads/Installerator$ python -m pip install ./dist/installerator-X.X.X.tar.gz -r ./requirements.txt
 ```
 
+## Requirements
+
+This package relies on another package, Configurator.
+Find out more about this package [here](https://github.com/cyclopticnerve/configurator).
+
 ## Uninstalling
 
 ```python
@@ -45,7 +50,9 @@ python -m pip uninstall installerator
 
 ### Install:
 ```python
-from installerator import Installerator
+# NB: the whole import thing is still hazy to me, but this works 100%
+# from <package>.<module> import <Class>
+from installerator.installerator import Installerator
 
 # the user dict
 dict_user = {
@@ -75,14 +82,17 @@ dict_user = {
 }
 
 # create an instance of the class
-installerator = Installerator()
+inst = Installerator()
 
 # # run the instance
-installerator.run(dict_user)
+inst.run(dict_user)
 ```
-Uninstall:
+
+### Uninstall:
 ```python
-from uninstallerator import Uninstallerator 
+# NB: the whole import thing is still hazy to me, but this works 100%
+# from <package>.<moule> import <Class>
+from installerator.uninstallerator import Uninstallerator 
 
 dict_user = {
     "general": {
@@ -98,10 +108,10 @@ dict_user = {
 }
 
 # create an instance of the class
-uninstallerator = Uninstallerator()
+uninst = Uninstallerator()
 
 # # run the instance
-uninstallerator.run(dict_user)
+uninst.run(dict_user)
 ```
 
 ## -)
