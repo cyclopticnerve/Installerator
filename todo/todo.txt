@@ -1,0 +1,7 @@
+NEXT: pre/postflight exit codes
+NEXT: cmdline option for path to config file
+NEXT: add version string to options and print at start of install
+NEXT: custom substitutions?
+NEXT: all possible entries in pyproject.toml
+NEXT: can we download current in one shot? python -m pip install git+https://...
+And can we do that with releses? download from main or latest?
