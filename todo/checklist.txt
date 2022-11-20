@@ -27,15 +27,15 @@ Work
     [X] Install/test in venv (this project)
     [X] Install/test in venv (test project)
     [X] Headers/footers
-    [] Docstrings
+    [X] Docstrings
 
 --------------------------------------------------------------------------------
 
 Release - VSCodium
-    [] $ python -m pip freeze > requirements.txt
-    [] remove '-e' from requirements
-    [] Change version number in __init__.py and pyproject.toml
-    [] Build - $ python -m build
+    [X] $ python -m pip freeze > requirements.txt
+    [X] remove '-e' from requirements
+    [X] Change version number in __init__.py and pyproject.toml
+    [X] Build - $ python -m build
     [] Push "dev"
     [] Checkout new branch “release” from “dev”
     [] Publish branch
