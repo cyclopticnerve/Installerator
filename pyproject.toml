@@ -33,7 +33,7 @@ keywords = [
     "installer",
     "installation"
 ]
-dependencies = []
+dependencies = ["configurator"]
 requires-python = ">=3.10"
 
 [project.urls]
