@@ -8,7 +8,8 @@
 # sys.path.insert(1, src)
 
 # local imports
-from installerator import Installerator # noqa E402 (ignore import order)
+# from package.module import class
+from installerator.installerator import Installerator # noqa E402 (ignore import order)
 
 # the user dict
 dict_user = {
@@ -43,7 +44,7 @@ dict_user = {
 if __name__ == '__main__':
 
     # create an instance of the class
-    installerator = Installerator()
+    inst = Installerator()
 
     # # run the instance
-    installerator.run(dict_user)
+    inst.run(dict_user)

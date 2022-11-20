@@ -8,7 +8,7 @@
 # sys.path.insert(1, src)
 
 # local imports
-from uninstallerator import Uninstallerator # noqa E402 (ignore import order)
+from installerator.uninstallerator import Uninstallerator # noqa E402 (ignore import order)
 
 dict_user = {
     "general": {
@@ -28,7 +28,7 @@ dict_user = {
 if __name__ == '__main__':
 
     # create an instance of the class
-    uninstallerator = Uninstallerator()
+    uninst = Uninstallerator()
 
     # # run the instance
-    uninstallerator.run(dict_user)
+    uninst.run(dict_user)
