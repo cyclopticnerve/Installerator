@@ -17,7 +17,7 @@ import shutil
 import subprocess
 
 # local imports
-from base_installerator import Base_Installerator
+from installerator.base_installerator import Base_Installerator
 
 # ------------------------------------------------------------------------------
 # Constants
@@ -42,13 +42,7 @@ class Installerator(Base_Installerator):
     def __init__(self):
 
         '''
-            desc
-
-            Paramaters:
-                param1 [type]:
-
-            Returns:
-                ret [type]:
+            The default initialization of the class
         '''
 
         # base installer init
@@ -60,13 +54,10 @@ class Installerator(Base_Installerator):
     def run(self, dict_user):
 
         '''
-            desc
+            Runs the setup using the supplied user dictionary
 
             Paramaters:
-                param1 [type]:
-
-            Returns:
-                ret [type]:
+                dict_user [dict]: the user dict to get options from
         '''
 
         # base installer run
@@ -99,13 +90,7 @@ class Installerator(Base_Installerator):
     def _do_sys_reqs(self):
 
         '''
-            desc
-
-            Paramaters:
-                param1 [type]:
-
-            Returns:
-                ret [type]:
+            Install any system requirements
         '''
 
         # check for pip necessary
@@ -144,13 +129,7 @@ class Installerator(Base_Installerator):
     def _do_py_reqs(self):
 
         '''
-            desc
-
-            Paramaters:
-                param1 [type]:
-
-            Returns:
-                ret [type]:
+            Install any Python requirements
         '''
 
         # check for empty/no list
@@ -185,13 +164,7 @@ class Installerator(Base_Installerator):
     def _do_dirs(self):
 
         '''
-            desc
-
-            Paramaters:
-                param1 [type]:
-
-            Returns:
-                ret [type]:
+            Create any required folders
         '''
 
         # check for empty/no list
@@ -223,13 +196,7 @@ class Installerator(Base_Installerator):
     def _do_files(self):
 
         '''
-            desc
-
-            Paramaters:
-                param1 [type]:
-
-            Returns:
-                ret [type]:
+            Copy (or create) any required files
         '''
 
         # check for empty/no list

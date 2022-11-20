@@ -15,7 +15,7 @@ import os
 import shutil
 
 # local imports
-from base_installerator import Base_Installerator
+from installerator.base_installerator import Base_Installerator
 
 # ------------------------------------------------------------------------------
 # Constants
@@ -40,13 +40,7 @@ class Uninstallerator(Base_Installerator):
     def __init__(self):
 
         '''
-            desc
-
-            Paramaters:
-                param1 [type]:
-
-            Returns:
-                ret [type]:
+            The default initialization of the class
         '''
 
         # base installer init
@@ -58,13 +52,10 @@ class Uninstallerator(Base_Installerator):
     def run(self, dict_user):
 
         '''
-            desc
+            Runs the setup using the supplied user dictionary
 
             Paramaters:
-                param1 [type]:
-
-            Returns:
-                ret [type]:
+                dict_user [dict]: the user dict to get options from
         '''
 
         # base installer run
@@ -92,13 +83,7 @@ class Uninstallerator(Base_Installerator):
     def _do_dirs(self):
 
         '''
-            desc
-
-            Paramaters:
-                param1 [type]:
-
-            Returns:
-                ret [type]:
+            Delete any specified directories
         '''
 
         # check for empty/no list
@@ -130,13 +115,7 @@ class Uninstallerator(Base_Installerator):
     def _do_files(self):
 
         '''
-            desc
-
-            Paramaters:
-                param1 [type]:
-
-            Returns:
-                ret [type]:
+            Delete any specified files
         '''
 
         # check for empty/no list

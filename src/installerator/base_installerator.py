@@ -41,14 +41,10 @@ class Base_Installerator:
     def __init__(self):
 
         '''
-            desc
-
-            Paramaters:
-                param1 [type]:
-
-            Returns:
-                ret [type]:
+            The default initialization of the class
         '''
+
+        # do nothing
         pass
 
     # --------------------------------------------------------------------------
@@ -61,13 +57,10 @@ class Base_Installerator:
     def _run(self, dict_user):
 
         '''
-            desc
+            Runs the setup using the supplied user dictionary
 
             Paramaters:
-                param1 [type]:
-
-            Returns:
-                ret [type]:
+                dict_user [dict]: the user dict to get options from
         '''
 
         # the defs dict
@@ -110,13 +103,10 @@ class Base_Installerator:
     def _check_sudo(self):
 
         '''
-            desc
-
-            Paramaters:
-                param1 [type]:
+            Checks if we need sudo permission early in the install
 
             Returns:
-                ret [type]:
+                ret [bool]: True if we need sudo permission, False if we don't
         '''
 
         # if either of theses steps is required, we need sudo
@@ -133,14 +123,10 @@ class Base_Installerator:
     def _do_preflight(self):
 
         '''
-            desc
-
-            Paramaters:
-                param1 [type]:
-
-            Returns:
-                ret [type]:
+            Run preflight scripts (before we do the heavy lifting)
         '''
+
+        # run preflight scripts
         self._run_scripts('preflight')
 
     # --------------------------------------------------------------------------
@@ -149,14 +135,10 @@ class Base_Installerator:
     def _do_postflight(self):
 
         '''
-            desc
-
-            Paramaters:
-                param1 [type]:
-
-            Returns:
-                ret [type]:
+            Run postflight scripts (after we do the heavy lifting)
         '''
+
+        # run postflight scripts
         self._run_scripts('postflight')
 
     # --------------------------------------------------------------------------
@@ -165,13 +147,13 @@ class Base_Installerator:
     def _needs_step(self, step):
 
         '''
-            desc
+            Check if an entry in the defs/user needs to be run
 
             Paramaters:
-                param1 [type]:
+                step [str]: the step to check for in the final dict
 
             Returns:
-                ret [type]:
+                ret [bool]:True if the dict contains the step, False otherwise
         '''
 
         # if the section is present
@@ -191,13 +173,13 @@ class Base_Installerator:
     def _run_scripts(self, step):
 
         '''
-            desc
+            Runs the scripts from preflight or postflight
 
             Paramaters:
-                param1 [type]:
+                step [str]: The step to run, either preflight or postflight
 
             Returns:
-                ret [type]:
+                ret [int]: Not Implemented yet
         '''
 
         # check for empty/no list
