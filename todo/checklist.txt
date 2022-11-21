@@ -25,30 +25,32 @@ GitHub
 Work
      - Do all work on dev
      - Unit tests
-    [X] Internal test (sys.path)
-    [X] Install/test in venv (this project)
-    [X] Install/test in venv (test project)
-    [X] Headers/footers
-    [X] Docstrings
+    [] Internal test (sys.path)
+    [] Install/test in venv (this project)
+    [] Install/test in venv (test project)
+    [] Headers/footers
+    [] Docstrings
 
 --------------------------------------------------------------------------------
 
 Release - VSCodium
-    [X] $ python -m pip freeze > requirements.txt
-    [X] remove '-e' from requirements
-    [X] Change version number in __init__.py and pyproject.toml
-    [X] Build - $ python -m build
-    [X] Push "dev"
-    [X] Checkout new branch “release” from “dev”
-    [X] Publish branch
+    [] $ python -m pip freeze > requirements.txt
+    [] remove '-e' from requirements
+    [] Change version number in __init__.py and pyproject.toml
+    [] Build - $ python -m build
+    [] Push "dev"
+    [] Checkout new branch “release” from “dev”
+    [] Publish branch
     --- Modify files as necessary (delete .gitignore, etc.)
-    [X] Change any DEBUG to 0
-    [X] Merge from “release” to “main“ (git checkout “main”; git merge “release”)
-    [X] Delete release branch
-    [X] tag with version number "vX.X.X"
-    [X] Push “main”    
-    [X] checkout "dev"
+    [] Change any DEBUG to 0
+    [] Merge from “release” to “main“ (git checkout “main”; git merge “release”)
+    [] Delete release branch
+    [] tag with version number "vX.X.X"
+    [] Push “main”    
+    [] checkout "dev"
 Release - GitHub
-    [X] Draft release
-    [X] Tag with version number (v0.1.0)
-    [X] Make sure target is main
+    [] Draft release
+    [] Tag with version number (v0.1.0)
+    [] Make sure target is main
+
+Reset all checks below "work"
