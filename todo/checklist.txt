@@ -45,8 +45,8 @@ Release - VSCodium
     [X] Change any DEBUG to 0
     [X] Merge from “release” to “main“ (git checkout “main”; git merge “release”)
     [X] Delete release branch
-    [X] Push “main”
-    [X] tag with version number "vX.X.X" and push
+    [X] tag with version number "vX.X.X"
+    [X] Push “main”    
     [X] checkout "dev"
 Release - GitHub
     [X] Draft release
