@@ -17,7 +17,7 @@ A small Python module that makes working with json settings files easier
 ## Installing
 
 You can download the (hopefully stable) 
-[latest release](https://github.com/danahynes/installerator/releases/latest) 
+[latest release](https://github.com/cyclopticnerve/installerator/releases/latest) 
 from the main branch. <br>
 Download the Source Code (tar.gz) file. <br>
 Then install it using:
@@ -29,7 +29,7 @@ foo@bar:~/Downloads$ python -m pip install Installerator-X.X.X.tar.gz
 Or you can clone the git repo to get the latest (and often broken) code from the dev branch:
 ```bash
 foo@bar:~$ cd Downloads
-foo@bar:~/Downloads$ git clone https://github.com/danahynes/Installerator
+foo@bar:~/Downloads$ git clone https://github.com/cyclopticnerve/Installerator
 foo@bar:~/Downloads$ cd Installerator
 foo@bar:~/Downloads/Installerator$ python -m build
 foo@bar:~/Downloads/Installerator$ python -m pip install ./dist/installerator-X.X.X.tar.gz -r ./requirements.txt
@@ -38,7 +38,7 @@ foo@bar:~/Downloads/Installerator$ python -m pip install ./dist/installerator-X.
 ## Requirements
 
 This package relies on another package, Configurator.
-Find out more about this package [here](https://github.com/danahynes/configurator).
+Find out more about this package [here](https://github.com/cyclopticnerve/configurator).
 
 ## Uninstalling
 
