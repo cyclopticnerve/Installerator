@@ -54,3 +54,5 @@ Release - GitHub
     [] Make sure target is main
 
 Reset all checks below "work"
+    Ctrl-H
+    
