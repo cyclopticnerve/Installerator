@@ -23,13 +23,16 @@ GitHub
 --------------------------------------------------------------------------------
 
 Work
-     - Do all work on dev
-     - Unit tests
-    [] Internal test (sys.path)
-    [] Install/test in venv (this project)
-    [] Install/test in venv (test project)
+    --- Do all work on dev
     [] Headers/footers
     [] Docstrings
+
+--------------------------------------------------------------------------------
+
+Test
+    --- Unit tests
+    [] Internal test (sys.path)
+    [] Install/test in venv (this project)$ (venv) python -m pip install -e .
 
 --------------------------------------------------------------------------------
 
@@ -48,11 +51,12 @@ Release - VSCodium
     [] tag with version number "vX.X.X"
     [] Push “main”    
     [] checkout "dev"
+
 Release - GitHub
     [] Draft release
     [] Tag with version number (v0.1.0)
     [] Make sure target is main
 
 Reset all checks below "work"
-    Ctrl-H
+    [] Ctrl-H, replace [X] with []
     
