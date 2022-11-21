@@ -13,7 +13,7 @@ A small Python module that makes installing Python apps easier
 '''
 
 # import all modules in package to get full dot notation from package import
-from installerator import installerator     # noqa W0611 (unused import)
-from installerator import uninstallerator   # noqa W0611 (unused import)
+import installerator     # noqa W0611 (unused import)
+import uninstallerator   # noqa W0611 (unused import)
 
 # -)
