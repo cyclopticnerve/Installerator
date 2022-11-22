@@ -147,7 +147,7 @@ dict_defs = {
     ]
 }
 ```
-And the dict_subs lokks like this:
+And the dict_subs looks like this:
 ```
 python
 # get current user's home dir
