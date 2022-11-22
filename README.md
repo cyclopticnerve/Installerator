@@ -127,8 +127,7 @@ uninst.run(dict_user)
 Currently, dict_defs and dict_subs are hard-coded to waht the lib expects. This
 may change in future releases.
 The dict_def looks like this (note which keys are dicts, and which are arrays):
-```
-python
+```python
 dict_defs = {
     'general': {
         'name':    ''
@@ -148,8 +147,7 @@ dict_defs = {
 }
 ```
 And the dict_subs looks like this:
-```
-python
+```python
 # get current user's home dir
 home_dir = os.path.expanduser('~')
 
