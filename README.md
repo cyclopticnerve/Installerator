@@ -14,6 +14,11 @@
 
 A small Python module that makes installing Python apps easier
 
+## Requirements
+
+This package relies on another package, Configurator.
+Find out more about this package [here](https://github.com/cyclopticnerve/configurator).
+
 ## Installing
 
 You can download the (hopefully stable) 
@@ -35,11 +40,6 @@ foo@bar:~/Downloads$ cd Installerator
 foo@bar:~/Downloads/Installerator$ python -m build
 foo@bar:~/Downloads/Installerator$ python -m pip install ./dist/installerator-X.X.X.tar.gz -r ./requirements.txt
 ```
-
-## Requirements
-
-This package relies on another package, Configurator.
-Find out more about this package [here](https://github.com/cyclopticnerve/configurator).
 
 ## Uninstalling
 
