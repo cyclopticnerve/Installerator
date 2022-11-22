@@ -55,7 +55,7 @@ python -m pip uninstall installerator
 # from <package>.<module> import <Class>
 from installerator.installerator import Installerator
 
-# NB: configurator's dict_def and dict_subs are hard coded
+# NB: configurator's dict_defs and dict_subs are hard coded
 # so the only thing we need is dict_user
 
 # the user dict
@@ -98,7 +98,7 @@ inst.run(dict_user)
 # from <package>.<moule> import <Class>
 from installerator.uninstallerator import Uninstallerator 
 
-# NB: configurator's dict_def and dict_subs are hard coded
+# NB: configurator's dict_defs and dict_subs are hard coded
 # so the only thing we need is dict_user
 
 # the user dict
