@@ -8,7 +8,13 @@
 # sys.path.insert(1, src)
 
 # local imports
-from installerator.uninstallerator import Uninstallerator # noqa E402 (ignore import order)
+
+# 1
+# from package.module import class
+from installerator.installerator import Uninstallerator # noqa E402 (ignore import order)
+
+# 2
+# import installerator # noqa E402 (ignore import order)
 
 dict_user = {
     "general": {

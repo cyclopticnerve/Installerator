@@ -14,7 +14,7 @@
 # from installerator.installerator import Installerator # noqa E402 (ignore import order)
 
 # 2
-import installerator
+import installerator # noqa E402 (ignore import order)
 
 # the user dict
 dict_user = {
