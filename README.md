@@ -12,7 +12,7 @@
 
 [![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)
 
-A small Python module that makes working with json settings files easier
+A small Python module that makes installing Python apps easier
 
 ## Installing
 
