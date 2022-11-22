@@ -49,11 +49,14 @@ python -m pip uninstall installerator
 
 ## Usage
 
-### Install:
+### Install.py:
 ```python
-# NB: the whole import thing is still hazy to me, but this works 100%
+
 # from <package>.<module> import <Class>
 from installerator.installerator import Installerator
+
+# NB: configurator's dict_def and dict_subs are hard coded
+# so the only thing we need is dict_user
 
 # the user dict
 dict_user = {
@@ -89,12 +92,16 @@ inst = Installerator()
 inst.run(dict_user)
 ```
 
-### Uninstall:
+### Uninstall.py:
 ```python
-# NB: the whole import thing is still hazy to me, but this works 100%
+
 # from <package>.<moule> import <Class>
 from installerator.uninstallerator import Uninstallerator 
 
+# NB: configurator's dict_def and dict_subs are hard coded
+# so the only thing we need is dict_user
+
+# the user dict
 dict_user = {
     "general": {
         "name": "SpaceOddity"
@@ -113,6 +120,47 @@ uninst = Uninstallerator()
 
 # # run the instance
 uninst.run(dict_user)
+```
+
+## Notes
+
+Currently, dict_defs and dict_subs are hard-coded to waht the lib expects. This
+may change in future releases.
+The dict_def looks like this (note which keys are dicts, and which are arrays):
+```
+python
+dict_defs = {
+    'general': {
+        'name':    ''
+    },
+    'preflight': [
+    ],
+    'sys_reqs': [
+    ],
+    'py_reqs': [
+    ],
+    'dirs': [
+    ],
+    'files': {
+    },
+    'postflight': [
+    ]
+}
+```
+And the dict_subs lokks like this:
+```
+python
+# get current user's home dir
+home_dir = os.path.expanduser('~')
+
+# get location
+src_dir = os.path.dirname(os.path.abspath(__file__))
+
+# the default dict of substitutions
+dict_subs = {
+    '${HOME}': home_dir,
+    '${SRC}': src_dir
+}
 ```
 
 ## -)
