@@ -32,6 +32,11 @@ DEBUG = 1
 
 class Installerator(Base_Installerator):
 
+    '''
+        The class to use for installing. Feel free to override dict_user in
+        run().
+    '''
+
     # --------------------------------------------------------------------------
     # Public methods
     # --------------------------------------------------------------------------

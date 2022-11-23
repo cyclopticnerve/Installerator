@@ -30,6 +30,11 @@ DEBUG = 1
 
 class Uninstallerator(Base_Installerator):
 
+    '''
+        The class to use for uninstalling. Feel free to override dict_user in
+        run().
+    '''
+
     # --------------------------------------------------------------------------
     # Public methods
     # --------------------------------------------------------------------------

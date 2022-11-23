@@ -31,6 +31,11 @@ DEBUG = 1
 
 class Base_Installerator:
 
+    '''
+        The base class for Installerator/Uninstallerator. Should not be used by
+        ANYBODY, EVER. Serious harm may occur.
+    '''
+
     # --------------------------------------------------------------------------
     # Public methods
     # --------------------------------------------------------------------------
