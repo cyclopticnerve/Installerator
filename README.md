@@ -124,9 +124,10 @@ uninst.run(dict_user)
 
 ## Notes
 
-Currently, dict_defs and dict_subs are hard-coded to waht the lib expects. This
+Currently, dict_defs and dict_subs are hard-coded to what the lib expects. This
 may change in future releases.
-The dict_def looks like this (note which keys are dicts, and which are arrays):
+The dict_def looks like this (note which values are dicts, and which are 
+arrays):
 ```python
 dict_defs = {
     'general': {
