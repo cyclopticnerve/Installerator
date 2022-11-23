@@ -18,7 +18,7 @@ A small Python module that makes installing Python apps easier
 
 This app also requires one additional library:<br>
 [Configurator](https://github.com/cyclopticnerve/Configurator/releases/latest)<br>
-See its repo for installation instructions.
+See it's repo for installation instructions.
 
 ## Installing
 
