@@ -22,6 +22,14 @@ See it's repo for installation instructions.
 
 ## Installing
 
+You should first run:
+
+```bash
+foo@bar:~$ sudo apt update && sudo apt upgrade
+```
+
+to make sure you have the lastest software installed.
+
 You can download the (hopefully stable) 
 [latest release](https://github.com/cyclopticnerve/installerator/releases/latest) 
 from the main branch. <br>
