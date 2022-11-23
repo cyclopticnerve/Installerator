@@ -31,10 +31,10 @@ DEBUG = 1
 
 class Base_Installerator:
 
-    '''
+    """
         The base class for Installerator/Uninstallerator. Should not be used by
         ANYBODY, EVER. Serious harm may occur.
-    '''
+    """
 
     # --------------------------------------------------------------------------
     # Public methods
@@ -45,9 +45,9 @@ class Base_Installerator:
     # --------------------------------------------------------------------------
     def __init__(self):
 
-        '''
+        """
             The default initialization of the class
-        '''
+        """
 
         # do nothing
         pass
@@ -61,12 +61,12 @@ class Base_Installerator:
     # --------------------------------------------------------------------------
     def _run(self, dict_user):
 
-        '''
+        """
             Runs the setup using the supplied user dictionary
 
             Paramaters:
                 dict_user [dict]: the user dict to get options from
-        '''
+        """
 
         # the defs dict
         dict_defs = {
@@ -107,12 +107,12 @@ class Base_Installerator:
     # --------------------------------------------------------------------------
     def _check_sudo(self):
 
-        '''
+        """
             Checks if we need sudo permission early in the install
 
             Returns:
                 ret [bool]: True if we need sudo permission, False if we don't
-        '''
+        """
 
         # if either of theses steps is required, we need sudo
         if self._needs_step('sys_reqs') or self._needs_step('py_reqs'):
@@ -127,9 +127,9 @@ class Base_Installerator:
     # --------------------------------------------------------------------------
     def _do_preflight(self):
 
-        '''
+        """
             Run preflight scripts (before we do the heavy lifting)
-        '''
+        """
 
         # run preflight scripts
         self._run_scripts('preflight')
@@ -139,9 +139,9 @@ class Base_Installerator:
     # --------------------------------------------------------------------------
     def _do_postflight(self):
 
-        '''
+        """
             Run postflight scripts (after we do the heavy lifting)
-        '''
+        """
 
         # run postflight scripts
         self._run_scripts('postflight')
@@ -151,7 +151,7 @@ class Base_Installerator:
     # --------------------------------------------------------------------------
     def _needs_step(self, step):
 
-        '''
+        """
             Check if an entry in the defs/user needs to be run
 
             Paramaters:
@@ -159,7 +159,7 @@ class Base_Installerator:
 
             Returns:
                 ret [bool]:True if the dict contains the step, False otherwise
-        '''
+        """
 
         # if the section is present
         if step in self.dict_conf.keys():
@@ -177,7 +177,7 @@ class Base_Installerator:
     # --------------------------------------------------------------------------
     def _run_scripts(self, step):
 
-        '''
+        """
             Runs the scripts from preflight or postflight
 
             Paramaters:
@@ -185,7 +185,7 @@ class Base_Installerator:
 
             Returns:
                 ret [int]: Not Implemented yet
-        '''
+        """
 
         # check for empty/no list
         if not self._needs_step(step):

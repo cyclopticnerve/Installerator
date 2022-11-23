@@ -32,10 +32,10 @@ DEBUG = 1
 
 class Installerator(Base_Installerator):
 
-    '''
+    """
         The class to use for installing. Feel free to override dict_user in
         run().
-    '''
+    """
 
     # --------------------------------------------------------------------------
     # Public methods
@@ -46,9 +46,9 @@ class Installerator(Base_Installerator):
     # --------------------------------------------------------------------------
     def __init__(self):
 
-        '''
+        """
             The default initialization of the class
-        '''
+        """
 
         # base installer init
         super().__init__()
@@ -58,12 +58,12 @@ class Installerator(Base_Installerator):
     # --------------------------------------------------------------------------
     def run(self, dict_user):
 
-        '''
+        """
             Runs the setup using the supplied user dictionary
 
             Paramaters:
                 dict_user [dict]: the user dict to get options from
-        '''
+        """
 
         # base installer run
         super()._run(dict_user)
@@ -94,9 +94,9 @@ class Installerator(Base_Installerator):
     # --------------------------------------------------------------------------
     def _do_sys_reqs(self):
 
-        '''
+        """
             Install any system requirements
-        '''
+        """
 
         # check for pip necessary
         if super()._needs_step('py-reqs'):
@@ -133,9 +133,9 @@ class Installerator(Base_Installerator):
     # --------------------------------------------------------------------------
     def _do_py_reqs(self):
 
-        '''
+        """
             Install any Python requirements
-        '''
+        """
 
         # check for empty/no list
         if not super()._needs_step('py_reqs'):
@@ -168,9 +168,9 @@ class Installerator(Base_Installerator):
     # --------------------------------------------------------------------------
     def _do_dirs(self):
 
-        '''
+        """
             Create any required folders
-        '''
+        """
 
         # check for empty/no list
         if not super()._needs_step('dirs'):
@@ -200,9 +200,9 @@ class Installerator(Base_Installerator):
     # --------------------------------------------------------------------------
     def _do_files(self):
 
-        '''
+        """
             Copy (or create) any required files
-        '''
+        """
 
         # check for empty/no list
         if not super()._needs_step('files'):

@@ -30,10 +30,10 @@ DEBUG = 1
 
 class Uninstallerator(Base_Installerator):
 
-    '''
+    """
         The class to use for uninstalling. Feel free to override dict_user in
         run().
-    '''
+    """
 
     # --------------------------------------------------------------------------
     # Public methods
@@ -44,9 +44,9 @@ class Uninstallerator(Base_Installerator):
     # --------------------------------------------------------------------------
     def __init__(self):
 
-        '''
+        """
             The default initialization of the class
-        '''
+        """
 
         # base installer init
         super().__init__()
@@ -56,12 +56,12 @@ class Uninstallerator(Base_Installerator):
     # --------------------------------------------------------------------------
     def run(self, dict_user):
 
-        '''
+        """
             Runs the setup using the supplied user dictionary
 
             Paramaters:
                 dict_user [dict]: the user dict to get options from
-        '''
+        """
 
         # base installer run
         super()._run(dict_user)
@@ -87,9 +87,9 @@ class Uninstallerator(Base_Installerator):
     # --------------------------------------------------------------------------
     def _do_dirs(self):
 
-        '''
+        """
             Delete any specified directories
-        '''
+        """
 
         # check for empty/no list
         if not super()._needs_step('dirs'):
@@ -119,9 +119,9 @@ class Uninstallerator(Base_Installerator):
     # --------------------------------------------------------------------------
     def _do_files(self):
 
-        '''
+        """
             Delete any specified files
-        '''
+        """
 
         # check for empty/no list
         if not super()._needs_step('files'):
