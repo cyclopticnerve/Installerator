@@ -126,8 +126,7 @@ class Uninstallerator(Base_Installerator):
                 print('Done')
             except Exception as error:
                 print('Fail')
-                print(f'Could not delete directory {item}: {error}')
-                exit()
+                raise Exception(f'Could not delete directory {item}: {error}')
 
     # --------------------------------------------------------------------------
     # Delete any necessary files (outside above directiories)
@@ -171,7 +170,6 @@ class Uninstallerator(Base_Installerator):
                     print('Done')
                 except Exception as error:
                     print('Fail')
-                    print(f'Could not delete file {src}: {error}')
-                    exit()
+                    raise Exception(f'Could not delete file {src}: {error}')
 
 # -)

@@ -138,8 +138,7 @@ class Installerator(Base_Installerator):
                 print('Done')
             except Exception as error:
                 print('Fail')
-                print(f'Could not install {item}: {error}')
-                exit()
+                raise Exception(f'Could not install {item}: {error}')
 
     # --------------------------------------------------------------------------
     # Install python prerequisites
@@ -179,8 +178,7 @@ class Installerator(Base_Installerator):
                 print('Done')
             except Exception as error:
                 print('Fail')
-                print(f'Could not install {item}: {error}')
-                exit()
+                raise Exception(f'Could not install {item}: {error}')
 
     # --------------------------------------------------------------------------
     # Make any necessary directories
@@ -217,8 +215,7 @@ class Installerator(Base_Installerator):
                 print('Done')
             except Exception as error:
                 print('Fail')
-                print(f'Could not create directory {item}: {error}')
-                exit()
+                raise Exception(f'Could not create directory {item}: {error}')
 
     # --------------------------------------------------------------------------
     # Copy all files to their dests
@@ -263,7 +260,6 @@ class Installerator(Base_Installerator):
                 print('Done')
             except Exception as error:
                 print('Fail')
-                print(f'Could not copy file {src}: {error}')
-                exit()
+                raise Exception(f'Could not copy file {src}: {error}')
 
 # -)

@@ -234,7 +234,6 @@ class Base_Installerator:
                 print('Done')
             except Exception as error:
                 print('Fail')
-                print(f'Could not run {item}: {error}')
-                exit()
+                raise Exception(f'Could not run {item}: {error}')
 
 # -)
