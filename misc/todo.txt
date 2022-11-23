@@ -5,3 +5,5 @@ NEXT: custom substitutions?
 NEXT: all possible entries in pyproject.toml
 NEXT: can we download current in one shot? python -m pip install git+https://...
 And can we do that with releses? download from main or latest?
+NEXT: have a "copy_dirs" section where we can copy whole dirs
+NEXT: have a "create_files \" section where we can create empty files
