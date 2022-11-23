@@ -47,6 +47,8 @@ class Base_Installerator:
 
         """
             The default initialization of the class
+
+            The base method does nothing. It is provided only as a convention.
         """
 
         # do nothing
@@ -66,6 +68,11 @@ class Base_Installerator:
 
             Paramaters:
                 dict_user [dict]: the user dict to get options from
+
+            This method takes the user dictionary and does sowme housekeeping,
+            such as creating the substitution directory. It also uses
+            configurator to merge the default and user dicts and apply the
+            substitutions.
         """
 
         # the defs dict
@@ -111,7 +118,11 @@ class Base_Installerator:
             Checks if we need sudo permission early in the install
 
             Returns:
-                ret [bool]: True if we need sudo permission, False if we don't
+                [bool]: True if we need sudo permission, False if we don't
+
+            This method is used to check if we will need sudo (for sys_reqs or
+            py_reqs) and ask for the sudo password early in the install process.
+            This gives a better visual appearance to the process.
         """
 
         # if either of theses steps is required, we need sudo
@@ -129,6 +140,9 @@ class Base_Installerator:
 
         """
             Run preflight scripts (before we do the heavy lifting)
+
+            This method runs any scripts specified in the preflight section of
+            the user dict, in the order they are specified.
         """
 
         # run preflight scripts
@@ -141,6 +155,9 @@ class Base_Installerator:
 
         """
             Run postflight scripts (after we do the heavy lifting)
+
+            This method runs any scripts specified in the postflight section of
+            the user dict, in the order they are specified.
         """
 
         # run postflight scripts
@@ -158,7 +175,12 @@ class Base_Installerator:
                 step [str]: the step to check for in the final dict
 
             Returns:
-                ret [bool]:True if the dict contains the step, False otherwise
+                [bool]:True if the dict contains the step, False otherwise
+
+            This method checks to see if a step (specified by the key name) is
+            needed, or if the value is empty. This saves us from printing info
+            about a step that will not actually be performed (such as not having
+            any preflight scripts to run, etc.).
         """
 
         # if the section is present
@@ -183,8 +205,12 @@ class Base_Installerator:
             Paramaters:
                 step [str]: The step to run, either preflight or postflight
 
-            Returns:
-                ret [int]: Not Implemented yet
+            Raises:
+                Exception(str): if the script could not be run
+
+            This method is the common code for running preflight/postflight
+            scripts. It takes the step (specified by the key name) and runs the
+            scripts in the order they are specified.
         """
 
         # check for empty/no list

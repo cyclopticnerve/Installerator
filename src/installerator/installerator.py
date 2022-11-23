@@ -33,7 +33,7 @@ DEBUG = 1
 class Installerator(Base_Installerator):
 
     """
-        The class to use for installing. Feel free to override dict_user in
+        The class to use for installing. You should override dict_user in
         run().
     """
 
@@ -48,6 +48,9 @@ class Installerator(Base_Installerator):
 
         """
             The default initialization of the class
+
+            This method calls the __init__ method of the base class.
+            The base method does nothing. It is provided only as a convention.
         """
 
         # base installer init
@@ -63,6 +66,10 @@ class Installerator(Base_Installerator):
 
             Paramaters:
                 dict_user [dict]: the user dict to get options from
+
+            This method is the main function of the class. It performs the
+            various steps required to install a python program, and should be
+            the only method called by your install.py file.
         """
 
         # base installer run
@@ -96,6 +103,12 @@ class Installerator(Base_Installerator):
 
         """
             Install any system requirements
+
+            Raises:
+                Exception(str): if apt-get fails
+
+            This method uses the conf dict to install any system requirements
+            (i.e. non-opython packages) necessary to run your program.
         """
 
         # check for pip necessary
@@ -135,6 +148,12 @@ class Installerator(Base_Installerator):
 
         """
             Install any Python requirements
+
+            Raises:
+                Exception(str): if pip fails
+
+            This method uses the conf dict to install any python requirements
+            (i.e. installed with pip) necessary to run your program.
         """
 
         # check for empty/no list
@@ -151,7 +170,7 @@ class Installerator(Base_Installerator):
             print(f'Installing {item}... ', end='')
 
             # install pip reqs
-            cmd = f'pip3 install -q {item} > /dev/null'
+            cmd = f'python -m pip install -q {item} > /dev/null'
             cmd_array = shlex.split(cmd)
             try:
                 if not DEBUG:
@@ -170,6 +189,12 @@ class Installerator(Base_Installerator):
 
         """
             Create any required folders
+
+            Raises:
+                Exception(str): if creating the folder fails
+
+            This method creates any system folders where your program requires
+            read-write acces. If the folder already exists, no action is taken.
         """
 
         # check for empty/no list
@@ -202,6 +227,16 @@ class Installerator(Base_Installerator):
 
         """
             Copy (or create) any required files
+
+            Raises:
+                Exception(str): if copying the file fails
+
+            This method copies the files specified in the conf dict from the
+            key to the value. All paths should be absolute, but you can use the
+            substitution values "${HOME}" (thu users home directory) and
+            "${SRC}" (the path to the install.py file) to construct
+            relative paths, which, after substitution, will be converted to 
+            absolute paths.
         """
 
         # check for empty/no list

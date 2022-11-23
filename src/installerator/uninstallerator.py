@@ -31,7 +31,7 @@ DEBUG = 1
 class Uninstallerator(Base_Installerator):
 
     """
-        The class to use for uninstalling. Feel free to override dict_user in
+        The class to use for uninstalling. You should override dict_user in
         run().
     """
 
@@ -46,6 +46,9 @@ class Uninstallerator(Base_Installerator):
 
         """
             The default initialization of the class
+
+            This method calls the __init__ method of the base class.
+            The base method does nothing. It is provided only as a convention.
         """
 
         # base installer init
@@ -61,6 +64,10 @@ class Uninstallerator(Base_Installerator):
 
             Paramaters:
                 dict_user [dict]: the user dict to get options from
+
+            This method is the main function of the class. It performs the
+            various steps required to uninstall a python program, and should be
+            the only method called by your uninstall.py file.
         """
 
         # base installer run
@@ -88,7 +95,15 @@ class Uninstallerator(Base_Installerator):
     def _do_dirs(self):
 
         """
-            Delete any specified directories
+            Delete any specified folders
+
+            Raises:
+                Exception(str): if deleting the folder fails
+
+            This method deletes any system folders where your program no longer
+            requires read-write acces. If the folder contains any files, those
+            files will also be deleted. Therefore make sure you only delete
+            folders that are not used by any other programs.
         """
 
         # check for empty/no list
@@ -121,6 +136,14 @@ class Uninstallerator(Base_Installerator):
 
         """
             Delete any specified files
+
+            Raises:
+                Exception(str): if deleting the file fails
+
+            This method deletes any files used by your program. Note that these
+            files may have been intrinsically deleted using _do_dirs, so this
+            method is only necessary if you store any files outside those
+            folders.
         """
 
         # check for empty/no list
