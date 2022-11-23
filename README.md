@@ -40,7 +40,8 @@ foo@bar:~$ cd Downloads
 foo@bar:~/Downloads$ python -m pip install Installerator-X.X.X.tar.gz
 ```
 
-Or you can clone the git repo to get the latest (and often broken) code from the dev branch:
+Or you can clone the git repo to get the latest (and often broken) code from the
+dev branch:
 ```bash
 foo@bar:~$ python -m pip install build
 foo@bar:~$ cd Downloads
